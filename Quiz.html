@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Quiz</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="slick-1.8.1\slick\slick.css">
+    <link rel="stylesheet" href="slick-1.8.1\slick\slick-theme.css">
+    <link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">
+    <script src="jquery-3.4.1.min.js"></script>
+</head>
+
+<body>
+
+    <div class="title" style="margin-top: 60px; text-align: center; font-family: Oswald, sans-serif;">
+        <h1 style="color: #1E2846; font-size: 28px;">JEANS FIT GUIDE</h1>
+        <p style="font-size: 18px; font-weight: 200;">Lorem ipsum dolor sit amet consect</p>
+
+
+    </div>
+    <div class="centralize">
+        <div class="question" id="firstquestion">
+            <h2>Se a tua vida fosse um emoji, qual seria?</h2>
+            <img src="Polygon 1.png" alt="" id="seta">
+            <div class="round">
+                <div class="tecgirl">
+                <img src="http://emojipedia.com.br/assets/img/designs/apple/118/1f469-200d-1f4bb.png" alt="tecgirl">
+                </div>
+                <div class="workoutgirl">
+                    <img src="http://emojipedia.com.br/assets/img/designs/google/119/1f3cb-fe0f-200d-2640-fe0f.png" alt="workoutgirl">
+                    </div>
+                    <div class="airplane">
+                        <img src="http://emojipedia.com.br/assets/img/designs/apple/118/2708.png" alt="airplane">
+                        </div>
+                        <div class="beer">
+                            <img src="http://emojipedia.com.br/assets/img/designs/apple/118/1f37b.png" alt="beer">
+                            </div>
+                            <div class="leafs">
+                                <img src="http://emojipedia.com.br/assets/img/designs/apple/118/1f343.png" alt="leafs">
+                                </div>
+        </div>
+    </div>
+    </div>
+    <div class="question" id="question2">
+        <h2>Qual é a tua parte do corpo preferida?</h2>
+        <div class="jeans">
+            <div id="anca"><img src="emptyheart.png" alt=""></div>
+            <div id="rabo"><img src="emptyheart.png" alt=""></div>
+            <div id="perna"><img src="emptyheart.png" alt=""></div>
+        </div>
+        <div class="submit-question" id="submitquest2"><p>Próximo</p></div>
+    </div>
+    <div class="question" id="question3">
+        <h2>Quão rasgadas gostas as tuas calças?</h2>
+        <h3 id="denim-description"></h3>
+        <div id="denim-img">
+            <img src="denim1.png" alt="">
+        </div>
+        <div class="options">
+        <div class="op" id="quest3op1">1</div>
+        <div class="op" id="quest3op2">2</div>
+        <div class="op" id="quest3op3">3</div>
+        <div class="op" id="quest3op4">4</div>
+        </div>
+
+        <div class="submit-question" id="submitquest3"><p>Próximo</p></div>
+    </div>
+    <div class="question" id="question4">     
+        <h2>Que calçado preferes?</h2>
+        <div id="alignright">
+        <div id="question4perna"></div>
+        </div>
+        <div class="question4_options">
+          <div class="carousel">
+            <div><img src="scarpin.png" alt="slider image"></div>
+            <div><img src="sneacker.png" alt="slider image"></div>
+            <div><img src="boot.png" alt="slider image"></div>
+            <div><img src="sandal.png" alt="slider image"></div>
+          </div>
+        </div>
+        <div class="submit-question" id="submitquest4"><p>Próximo</p></div>
+        </div>
+      
+    </div>
+   
+    <div class="question" id="question5">
+        <h2>Se as tuas calças falassem o que diriam?</h2>
+        <div class="question5_jeans">
+        <div class="question5_answer" id="question5_answer1"><p>Que não nego um desafio!!!!</p></div>
+        <div class="question5_answer" id="question5_answer2"><p>Prefiro não comentar</p></div>
+        <div class="question5_answer" id="question5_answer3"><p>A minha vida é muito calma</p></div>
+        </div>
+    </div>
+    
+
+    <div id="res">
+        <button id="showresult">Ver resultado</button>
+    </div>
+    <div id="options">
+
+        <div id="op1">Opção 1</div>
+        <div id="op2">Opção 2</div>
+        <div id="op3">Opção 3</div>
+
+    </div>
+
+
+    <script>
+        let res = []
+
+        /*questão 2*/
+           let anca = document.getElementById("anca")
+           let rabo = document.getElementById("rabo")
+           let perna = document.getElementById("perna")
+            let full = '<img src="fullheart.png" alt="">';
+            let empty = '<img src="emptyheart.png" alt="">';
+
+           anca.onclick = () => {
+               rabo.innerHTML = empty
+               perna.innerHTML = empty
+               anca.innerHTML = full
+               
+           }
+           rabo.onclick = () => {
+               anca.innerHTML = empty
+               perna.innerHTML = empty
+               rabo.innerHTML = full
+               
+           }
+           perna.onclick = () => {
+               rabo.innerHTML = empty
+               anca.innerHTML = empty
+               perna.innerHTML = full  
+           }
+
+          function answer_question2(){
+              if(anca.innerHTML == full){
+                  res.push('anca')
+              }
+              else if(rabo.innerHTML == full){
+                  res.push('rabo')
+              }
+              else if(perna.innerHTML == full){
+                  res.push('perna')
+              }
+              scrollToElement(document.getElementById("question3"))
+          }
+          document.getElementById("submitquest2").addEventListener("click", answer_question2)
+          document.getElementById('submitquest2').addEventListener('click', scrollToElement)
+          console.log(res)
+
+    /*Questão 3*/
+          let denim_img = document.getElementById("denim-img")
+          let denim1 = document.getElementById("quest3op1")
+          let denim2 = document.getElementById("quest3op2")
+          let denim3 = document.getElementById("quest3op3")
+          let denim4 = document.getElementById("quest3op4")
+
+          denim1.onclick = () => {
+            denim_img.innerHTML = ' <img src="denim1.png" alt="">'
+          }
+          denim2.onclick = () => {
+            denim_img.innerHTML = ' <img src="denim2.png" alt="">'
+          }
+          denim3.onclick = () => {
+            denim_img.innerHTML = ' <img src="denim3.png" alt="">'
+          }
+          denim4.onclick = () => {
+            denim_img.innerHTML = ' <img src="denim4.png" alt="">'
+          }
+          
+          let quest3sbm = document.getElementById("denim-img").innerHTML
+          function submitquest3(){
+              if(quest3sbm.match('denim1')){
+                 res.push('sem rasgo')
+              }
+              else if(quest3sbm.match('denim2')){
+                res.push('pouco rasgada')
+              }
+              else if(quest3sbm.match('denim3')){
+                res.push('mais rasgada')
+              }
+              else if(quest3sbm.match('denim4')){
+                res.push('super rasgada')
+              }
+          }
+          document.getElementById("submitquest3").addEventListener('click', submitquest3)
+          document.getElementById('submitquest3').addEventListener('click', scrollToElement)
+          console.log(res)
+
+          /*question 4*/
+          const carousel_img = document.querySelectorAll('.carousel div img')
+
+                carousel_img.forEach((element) => {
+                   element.addEventListener('click', () =>{
+                       element.style.zIndex = '2'
+                   })
+                })
+
+
+
+            /*question 5*/
+            const options5 = document.querySelectorAll('.question5_answer')
+            function saveresult5(){ 
+                let res5 = []
+                options5.forEach((element) => {
+                    element.addEventListener('click', () =>{
+                        res5.push(element.innerText)
+                        console.log(res5)
+                    })
+                    
+                })
+
+                
+            }
+            
+          function scrollToElement(element)
+            {   
+                const headerHeight = 69;
+                let yOffset = window.pageYOffset;
+                const finalYOffset = element ? element.offsetTop - 50 : 0;
+                let timer = 70;
+                if(yOffset > finalYOffset){
+                    while(yOffset > finalYOffset){
+                        yOffset = yOffset - 10 > finalYOffset ? yOffset - headerHeight : finalYOffset;
+                        setTimeout(() => window.scrollTo(0, yOffset), timer);
+                        timer += 20;
+                    } 
+                }
+                else {
+                    while(yOffset < finalYOffset){
+                        yOffset = yOffset + 10 < finalYOffset ? yOffset + headerHeight : finalYOffset;
+                        setTimeout(() => window.scrollTo(0, yOffset), timer);
+                        timer += 20;
+                    } 
+                }
+            }
+    </script>
+
+</body>
+
+</html>

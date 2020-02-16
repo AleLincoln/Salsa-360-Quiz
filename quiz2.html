@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div class="question1">
+        <h2>Esta é a minha pergunta?</h2>
+            <ul>
+                <li>
+                   <a href="" id="res1">Resposta 1</a>
+                </li>
+                <li>
+                   <a href="" id="res2">Resposta 2</a>
+                </li>
+            </ul>
+    </div>
+
+    <div class="question2">
+        <h2>Esta é a minha pergunta?</h2>
+            <ul>
+                <li>
+                   <a href="" id="res3">Resposta 1</a>
+                </li>
+                <li>
+                   <a href="" id="res4">Resposta 2</a>
+                </li>
+            </ul>
+    </div>
+
+    <div class="question3">
+        <h2>Esta é a minha pergunta?</h2>
+            <ul>
+                <li>
+                   <a href="" id="res5">Resposta 1</a>
+                </li>
+                <li>
+                   <a href="" id="res6">Resposta 2</a>
+                </li>
+            </ul>
+    </div>
+    <div class="question4">
+        <h2>Esta é a minha pergunta?</h2>
+            <ul>
+                <li>
+                   <a href="" id="res7">Resposta 1</a>
+                </li>
+                <li>
+                   <a href="" id="res8">Resposta 2</a>
+                </li>
+            </ul>
+    </div>
+    <div class="question5">
+        <h2>Esta é a minha pergunta?</h2>
+            <ul>
+                <li>
+                   <a href="" id="res9">Resposta 1</a>
+                </li>
+                <li>
+                   <a href="" id="res10">Resposta 2</a>
+                </li>
+            </ul>
+    </div>
+
+    <div id="teste"></div>
+
+    <script>
+        let res = []
+        let answers = document.querySelectorAll("a")
+
+            answers.forEach((element, index) => {
+                element.addEventListener("click", () => {
+                    res.push(index)
+                    document.getElementById("teste").innerHTML = `${res}`
+                })
+            })
+            
+            
+
+    
+    
+    </script>
+</body>
+</html>
